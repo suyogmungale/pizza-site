@@ -4,6 +4,10 @@ import About from './pages/About.jsx';
 import Home from './pages/Home.jsx';
 import Navigations from './components/navigations.js';
 import Product from './pages/Product.jsx';
+/* app.use(cors({
+  origin: 'http://localhost:3000'
+})); */
+
 
 function App() {
   return (
