@@ -4,9 +4,8 @@ import About from './pages/About.jsx';
 import Home from './pages/Home.jsx';
 import Navigations from './components/navigations.js';
 import Product from './pages/Product.jsx';
-/* app.use(cors({
-  origin: 'http://localhost:3000'
-})); */
+import SingleProduct from './pages/SingleProduct';
+import Cart from './pages/Cart.jsx';
 
 
 function App() {
@@ -17,7 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product" exact element={<Product />} />
+          <Route path="/product/:_id"  element={<SingleProduct />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
 
       </BrowserRouter>
