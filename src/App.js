@@ -7,14 +7,30 @@ import Product from './pages/Product.jsx';
 import SingleProduct from './pages/SingleProduct';
 import Cart from './pages/Cart.jsx';
 import  CartContext  from './pages/CartContext.js';
+import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 
 
 function App() {
+
+  const [cart, setCart] = useState(() => {
+    const cartData = window.localStorage.getItem('cart');
+    return JSON.parse(cartData) || {};
+  });
+  
+
+  useEffect(() => {
+    window.localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+  
+  
+
+
   return (
     <div>
       <BrowserRouter>
 
-      <CartContext.Provider value={{name:'suyog'}}>
+      <CartContext.Provider value={{ cart , setCart}}>
         <Navigations/>
         <Routes>
           <Route path="/" element={<Home />} />

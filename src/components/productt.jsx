@@ -1,8 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+//import CartContext from './pages/CartContext.js';
+import Product from '../pages/Product.jsx';
+import CartContext  from '../pages/CartContext.js';
 
 const Productt = (props) => {
+  const [isAdding, setIsAdding] = useState(false);
+  const { cart, setCart } = useContext(CartContext);
   const { product } = props; 
+
+  const addToCart = (event) => {
+    event.preventDefault();
+    console.log('Add to cart button clicked');
+    let _cart = {...cart};
+  
+    if(!_cart.items){
+      _cart.items = {}
+    }
+  
+    if(_cart.items[product._id]){
+      _cart.items[product._id] = _cart.items[product._id] + 1; 
+    } else {
+      _cart.items[product._id] = 1;
+    }
+  
+    if(!_cart.totalItems){
+      _cart.totalItems = 0;
+    }
+    _cart.totalItems += 1;
+    setCart(_cart);
+    setIsAdding(true)
+
+    setTimeout(() => {
+
+      setIsAdding(false);
+
+    }, 1000);
+    
+    // Store cart data in localStorage
+    localStorage.setItem('cart', JSON.stringify(_cart));
+  }
+  
+    
+
+  
   return (
     <Link to={`/product/${product._id}`}>
     <div>
@@ -13,7 +55,8 @@ const Productt = (props) => {
            </div>
            <div className='flex justify-between items-center mt-4'>
             <span>₹{product.price}</span>
-            <button className='bg-yellow-600 py-1 px-4 rounded-full font-bold'>Add</button>
+            <button disabled={isAdding} onClick={(e) => { addToCart (e, product)}} className={`${isAdding ? 'bg-green-500' : 
+            'bg-yellow-600'} py-1 px-4 rounded-full font-bold`}>ADD{isAdding ? 'ED' : ''}</button>
            </div>
         </div>
     </Link>
