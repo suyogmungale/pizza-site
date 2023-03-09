@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Productt from '../components/productt.jsx';
+import  CartContext  from './CartContext.js';
 
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+  
+ // const {name} = useContext(CartContext);
 
   useEffect(() => {
     fetch('/api/products')
     .then(response =>response.json())  
     .then(products => {
-     
+     console.log(products)
       setProducts(products)
       
     })

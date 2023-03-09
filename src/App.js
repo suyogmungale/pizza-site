@@ -6,12 +6,15 @@ import Navigations from './components/navigations.js';
 import Product from './pages/Product.jsx';
 import SingleProduct from './pages/SingleProduct';
 import Cart from './pages/Cart.jsx';
+import  CartContext  from './pages/CartContext.js';
 
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+
+      <CartContext.Provider value={{name:'suyog'}}>
         <Navigations/>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,6 +23,8 @@ function App() {
           <Route path="/product/:_id"  element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+ 
+        </CartContext.Provider>
 
       </BrowserRouter>
     </div>
