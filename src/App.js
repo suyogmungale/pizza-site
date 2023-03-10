@@ -15,7 +15,7 @@ function App() {
 
   const [cart, setCart] = useState(() => {
     const cartData = window.localStorage.getItem('cart');
-    return JSON.parse(cartData) || {};
+    return JSON.parse(cartData) ;
   });
   
 

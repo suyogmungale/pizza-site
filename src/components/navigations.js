@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import CartContext from "../pages/CartContext.js"
+import Productt from "./productt.jsx"
 
 const Navigations = () => {
 const cartstyle = {
@@ -9,6 +10,7 @@ const cartstyle = {
     padding:'6px 12px',
     borderRadius:'50px'
 }
+
 
 const {cart} = useContext(CartContext);
   return (
@@ -25,7 +27,7 @@ const {cart} = useContext(CartContext);
             <li className="ml-3">
                 <Link to="/cart">
                     <div style={cartstyle}>
-                        <span>{cart.totalItems}</span>
+                        <span>{ cart.totalItems ? cart.totalItems : 0 }</span>
                         <img className="ml-4" src="/images/cart.png" alt="cart img"/>
                     </div>
                 </Link>
