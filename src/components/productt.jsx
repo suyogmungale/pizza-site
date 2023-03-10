@@ -53,7 +53,7 @@ const Productt = (props) => {
            <span className='bg-gray-400 py-1 rounded-full text-sm px-4'>{product.size}</span>
            </div>
            <div className='flex justify-between items-center mt-4'>
-            <span>₹{product.price}</span>
+            <span class="font-bold m-2" >₹{product.price}</span>
             <button disabled={isAdding} onClick={(e) => { addToCart (e, product)}} className={`${isAdding ? 'bg-green-500' : 
             'bg-yellow-600'} py-1 px-4 rounded-full font-bold`}>ADD{isAdding ? 'ED' : ''}</button>
            </div>

@@ -5,10 +5,18 @@ const Cart = () => {
   let total = 0 ;
   const[products,setproducts] = useState([])
   const { cart, setCart } = useContext(CartContext);
-  console.log(cart)
+  
+  const [priceFetched, togglePriceFetched] = useState(false);
 
- useEffect(() => {
-  console.log(Object.keys(cart.items));
+  useEffect(() => {
+    
+    if(!cart.items){
+      return;
+    }
+
+  if(priceFetched){
+    return;
+  }
   fetch('/api/products/cart-items',
    {
     method: 'POST',
@@ -22,6 +30,7 @@ const Cart = () => {
     .then(res => res.json())
     .then(products => {
       setproducts(products);
+      togglePriceFetched(true);
     })
 }, [cart.items]) 
 
@@ -53,6 +62,24 @@ const getsum = (productId,price) => {
   total += sum;
   return sum;
 }
+
+const handleDelete = (productId) => {
+  const _cart = {...cart};
+  const qty = _cart.items[productId];
+  delete _cart.items[productId];
+  _cart.totalItems -= qty;
+  setCart(_cart);
+  const updatedProductList = products.filter((product) => product._id !== productId);
+  setproducts(updatedProductList)
+
+}
+
+const handleOrderNow = () => {
+  window.alert('order placed succesfuly')
+  setproducts([]);
+  setCart([]);
+
+}
   return (
 
     products.length ?
@@ -77,7 +104,7 @@ const getsum = (productId,price) => {
                   <button onClick={() => { increment (product._id)}} className='bg-yellow-500 px-4 py-2 rounded-full leading-none'>+</button>
                 </div>
                 <span>₹ {getsum(product._id, product.price)}</span>
-                <button className='bg-red-500 px-4 py-2 rounded-full leading-none text-white'>Delete</button>
+                <button onClick={() => {handleDelete(product._id)}} className='bg-red-500 px-4 py-2 rounded-full leading-none text-white'>Delete</button>
               </div>
             </li>
             )
@@ -97,12 +124,12 @@ const getsum = (productId,price) => {
       </div>
 
       <div>
-        <button className='bg-yellow-500 px-4 py-2 rounded-full leading-none'>Order Now</button>
+        <button onClick={handleOrderNow} className='bg-yellow-500 px-4 py-2 rounded-full leading-none'>Order Now</button>
       </div>
 
       </div>
       :
-      <img className='mx-auto w-1/2 mt-12 ' src="/empty-cart.png" alt="empty cart" />
+      <img className='mx-auto w-1/2 mt-12 ' src="/images/empty-cart.png" alt="empty cart" />
   )
 }
 
