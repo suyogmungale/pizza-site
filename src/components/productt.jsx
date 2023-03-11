@@ -47,7 +47,7 @@ const Productt = (props) => {
   return (
     <Link to={`/product/${product._id}`}>
     <div>
-           <img src={product.image} alt='img'/>
+           <img className='shadow-2xl' src={product.image} alt='img'/>
            <div className='text-center'>
            <h2 className='text-lg font-bold py-2'>{product.name}</h2>
            <span className='bg-gray-400 py-1 rounded-full text-sm px-4'>{product.size}</span>
