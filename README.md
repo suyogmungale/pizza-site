@@ -2,7 +2,7 @@ Pizza Site
 This is a fully functional website built using ReactJS. The content on the website is dynamically loaded from a backend server.
 
 <img
-  src="/path/to/img.jpg"
+  src="/public/images/Screenshot (15).png"
   alt="Alt text"
   title="Optional title"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
