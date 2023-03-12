@@ -1,4 +1,5 @@
-<h1>Pizza Site<h1>
+<h3>Pizza Site<h3>
+
 This is a fully functional website built using ReactJS. The content on the website is dynamically loaded from a backend server.
 
   <img
@@ -14,7 +15,8 @@ This is a fully functional website built using ReactJS. The content on the websi
   style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 
-<h1>Installation<h1>
+<h3>Installation<h3>
+
 To install this project, you'll need to have Node.js and npm installed on your machine. Once you've cloned the repository to your local machine, navigate to the project directory and run:
 
 bash
