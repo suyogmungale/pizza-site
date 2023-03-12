@@ -1,18 +1,20 @@
-Pizza Site
+<h1>Pizza Site<h1>
 This is a fully functional website built using ReactJS. The content on the website is dynamically loaded from a backend server.
-
-<img
-  src="/public/images/Screenshot (15).png"
-  alt="Alt text"
-  title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
 
   <img
   src="/public/images/Screenshot (14).png"
   alt="Alt text"
   title="Optional title"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
-Installation
+
+  <img
+  src="/public/images/Screenshot (15).png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+
+<h1>Installation<h1>
 To install this project, you'll need to have Node.js and npm installed on your machine. Once you've cloned the repository to your local machine, navigate to the project directory and run:
 
 bash
@@ -21,7 +23,7 @@ npm install
 This will install all of the necessary dependencies.
 
 Usage
-To run the project, run:
+To run the project, npm start
 
 bash
 Copy code
