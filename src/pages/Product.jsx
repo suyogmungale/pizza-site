@@ -6,7 +6,7 @@ import  CartContext  from './CartContext.js';
 const Product = () => {
   const [products, setProducts] = useState([]);
   
- // const {name} = useContext(CartContext);
+  const {name} = useContext(CartContext);
 
   useEffect(() => {
     fetch('/api/products')

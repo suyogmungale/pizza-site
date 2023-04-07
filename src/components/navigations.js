@@ -27,7 +27,7 @@ const {cart} = useContext(CartContext);
             <li className="ml-3">
                 <Link to="/cart">
                     <div style={cartstyle}>
-                        <span>{ cart.totalItems ? cart.totalItems : 0 }</span>
+                        <span>{ cart && cart.totalItems ?cart.totalItems : 0 }</span>
                         <img className="ml-4" src="/images/cart.png" alt="cart img"/>
                     </div>
                 </Link>
